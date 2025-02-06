@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: ndgndg91-practice
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      database: 0
+      lettuce:
+        pool:
+          enabled: true
+          max-idle: 50
+          max-active: 50
+          min-idle: 10
+
+ndgndg91:
+  resilience4j:
+    circuit-breaker:
+      enabled: true
+      failure-rate-threshold: 30
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health.probes.enabled: true
+  health:
+    circuit-breakers:
+      enabled: true
